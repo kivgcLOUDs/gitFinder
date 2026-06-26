@@ -244,6 +244,7 @@ body {
 .result-profile--container {
   display: flex;
   align-items: center;
+  width: 30%;
 }
 .result-info {
   line-height: 2.5rem;
@@ -372,7 +373,6 @@ body {
 
 .wid--3 {
   width: 50%;
-  font-size: 5rem;
 }
 
 .m--3 {
