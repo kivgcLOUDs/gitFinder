@@ -4,87 +4,162 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Git Finder</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <script defer src="app.js"></script>
   </head>
   <body>
-    <nav class="nav">
-      <div class="nav--left">
-        <img
-          class="logo--image"
-          src="https://img.icons8.com/?size=100&id=62856&format=png&color=000000"
-          alt="GitHub Icon"
-        />
-        <h3 class="nav--text">GitHub Finder</h3>
+    <div class="container">
+      <nav class="nav-item">
+        <div class="nav-item--left">
+          <h1 class="nav-item--left--text">
+            <span class="nav-item--left--1">
+              the
+              <span class="nav-item--left--2"> gitHub </span>
+            </span>
+            <span class="nav-item--left--3"> gazette </span>
+          </h1>
+        </div>
+
+        <div class="nav-item--right">
+          <p class="nav-item--right--text">vol. 1 . issue</p>
+          <p class="nav-item--right--text">001</p>
+          <p class="nav-item--right--text">Github.com/API/v3</p>
+          <p class="nav-item--right--text">Javascript Edition</p>
+        </div>
+      </nav>
+
+      <div class="about">
+        <ul class="about-list">
+          <li class="about-list-items">
+            developer <br />
+            intelligence
+          </li>
+          <li class="about-list-items">
+            open <br />
+            source
+          </li>
+          <li class="about-list-items">
+            profile <br />
+            archive
+          </li>
+        </ul>
       </div>
 
-      <div class="nav--right">
-        <a class="home navigator--right" href="#">Home</a>
-        <a class="about navigator--right" href="#">About</a>
-      </div>
-    </nav>
-
-    <section class="main">
-      <div class="header--section">
+      <main class="content">
         <div class="content--left">
-          <div class="img--container">
-            <img
-              src="https://img.icons8.com/?size=100&id=62856&format=png&color=000000"
-              alt="profile Photo"
-              class="profile-photo"
+          <p class="content--left-text--sub">search the archive</p>
+          <h1 class="content--left-text--header">
+            Find any
+            <span>Developer</span>
+            on GitHub
+          </h1>
+
+          <p class="content--left-text--main">
+            Enter a GitHub username to pull thier public profile - repository,
+            followers, and biography - straignt from the source.
+          </p>
+
+          <div class="controls">
+            <input
+              type="text"
+              placeholder="username"
+              class="controls--search-bar"
             />
+            <button class="controls--btn">search</button>
+            <p class="controls--text">
+              // No API key needed. powered by the GitHb REST API.
+            </p>
           </div>
         </div>
+        
         <div class="content--right">
-          <h2>GitHub <span class="content-span">organization</span></h2>
-          <p class="bio">How People Build Softwares</p>
 
-          <button class="gitHub-profile-btn gitHub--link">
-            Vist GitHub Profile
-          </button>
-
-          <div class="more-info">
-            <div class="info-left common">
-              <p class="info">Location</p>
-              <span class="sub-info">San fransico, CA </span>
-            </div>
-            <div class="info-right common">
-              <p class="info">Link</p>
-              <a href="#" class="link-info"> www.git-hud.com</a>
-            </div>
+          <div class="flexy">
+            <h2 class="content--right-heading">profile record</h2>
+            
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="stat">
-      <div class="stat-container">
-        <div class="stat-info">
-          <p>Followers</p>
-          <h3 class="followers">17302</h3>
-        </div>
-        <div class="stat-info">
-          <p>Following</p>
-          <h3>0</h3>
-        </div>
-
-        <div class="stat-info">
-          <img
-            class="stat-img"
-            src="https://img.icons8.com/?size=100&id=diWpdut8ORDL&format=png&color=000000"
-            alt=""
-          />
-
-          <div class="cover">
-            <p>Public Repo</p>
-            <h3 class="public-repo">432</h3>
+          <div class="query">
+            <h1 class="query--main">?</h1>
+            <h2 class="query--sub">awaiting query</h2>
           </div>
+
+
+          <!-- <div class="flexy">
+            <h2 class="content--right-heading">profile record</h2>
+            <h2 class="content--right-heading">00:33:00</h2>
+          </div>
+
+          <div class="result">
+            <div class="result-profile">
+              <div class="result-profile--container">
+                <img
+                  class="result-profile--image"
+                  src="css/img/profile.jpg"
+                  alt="profile-image"
+                />
+              </div>
+
+              <div class="result-info">
+                <h2 class="result-info--name">NAME</h2>
+                <p class="result-info--username">@username</p>
+                <p class="result-info--bio">
+                  what i really do for a living is code
+                </p>
+              </div>
+            </div>
+
+            <div class="result-stat">
+              <div class="result-stat--block">
+                <span class="result-stat--block-main">19</span>
+                <span class="result-stat--block-sub">repos</span>
+              </div>
+              <div class="result-stat--block">
+                <span class="result-stat--block-main">103</span>
+                <span class="result-stat--block-sub">followers</span>
+              </div>
+              <div class="result-stat--block">
+                <span class="result-stat--block-main">12</span>
+                <span class="result-stat--block-sub">following</span>
+              </div>
+            </div>
+
+            <div class="result-extra">
+              <ul>
+                <li class="result-extra--info">
+                  <p class="result-extra--info--main">location</p>
+                  <div class="result-extra--info--sub">nigeria</div>
+                </li>
+                <li class="result-extra--info">
+                  <p class="result-extra--info--main">company</p>
+                  <div class="result-extra--info--sub">-</div>
+                </li>
+                <li class="result-extra--info">
+                  <p class="result-extra--info--main">website</p>
+                  <div class="result-extra--info--sub">-</div>
+                </li>
+                <li class="result-extra--info">
+                  <p class="result-extra--info--main">joined</p>
+                  <div class="result-extra--info--sub">16th july 2023</div>
+                </li>
+              </ul>
+            </div>
+
+            <button class="controls--btn wid--3 m--3">view on GitHub</button>
+           -->
+            </div>
         </div>
-        <div class="stat-info">
-          <p>Public Gisr</p>
-          <h3>0</h3>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-left">
+          <p class="footer-left--text">built with vanila JS</p>
+          <p class="footer-left--text">no frameworks</p>
         </div>
-      </div>
-    </section>
+
+        <div class="footer-right">
+          <p class="footer-right--text">api.github.com/users/{username}</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

@@ -1,0 +1,236 @@
+.nav-item {
+  &--left {
+    &--text {
+      font-size: 5rem;
+      text-transform: capitalize;
+      font-family: var(--serif);
+      font-weight: 700;
+    }
+
+    &--1 {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+    &--2 {
+      color: var(--red);
+      font-style: italic;
+    }
+  }
+
+  &--right {
+    line-height: 1.6;
+    color: var(--rule);
+    text-transform: uppercase;
+    text-align: right;
+    letter-spacing: 1px;
+    font-family: var(--mono);
+  }
+}
+
+.about-list {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 2rem;
+
+  &-items {
+    letter-spacing: 1px;
+    color: var(--paper);
+  }
+
+  &-items:first-child {
+    list-style-type: none;
+  }
+}
+
+.content {
+  &--left {
+    flex: 10%;
+
+    &-text {
+      &--sub {
+        color: var(--red);
+        font-family: var(--mono);
+        letter-spacing: 1px;
+        word-spacing: 4px;
+        font-size: 1.3rem;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      &--main {
+        margin-top: 1.5rem;
+        color: var(--rule);
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        word-spacing: 2px;
+        font-family: var(--mono);
+        line-height: 3rem;
+      }
+
+      &--header {
+        font-family: var(--serif);
+        font-size: 5rem;
+        line-height: 4.7rem;
+
+        & span {
+          display: block;
+          font-style: italic;
+          // color: var(--red);
+        }
+      }
+    }
+  }
+
+  &--right {
+    flex: 1;
+
+    &-heading {
+      color: var(--rule);
+      font-weight: 200;
+      text-transform: uppercase;
+      font-size: 2rem;
+    }
+  }
+}
+
+.result {
+  margin-top: 3rem;
+
+  &-profile {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+
+    &--image {
+      border-radius: 50%;
+      width: 100%;
+      height: 15rem;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &-profile--container {
+    display: flex;
+    align-items: center;
+    // background-color: gray;
+  }
+
+  &-info {
+    line-height: 2.5rem;
+
+    &--name {
+      font-family: var(--serif);
+      font-size: 2.3rem;
+    }
+
+    &--username {
+      color: var(--red);
+      font-size: 1.4rem;
+      letter-spacing: 1.2px;
+    }
+
+    &--bio {
+      color: var(--rule);
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+      font-family: var(--mono);
+    }
+  }
+
+  &-stat--block {
+    display: inline-block;
+    border: 2px solid var(--ink);
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 3rem;
+
+    &:not(:first-child) {
+      border-left: none;
+    }
+
+    &-main {
+      font-weight: 800;
+      font-size: 2.2rem;
+      font-family: var(--mono);
+    }
+
+    &-sub {
+      color: var(--rule);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+      font-family: var(--mono);
+      text-transform: uppercase;
+    }
+  }
+
+  &-extra {
+    &--info {
+      display: flex;
+      padding: 1.6rem 0;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--rule);
+
+      &--sub {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+        font-weight: 200;
+        text-transform: capitalize;
+        text-align: start;
+        padding-right: 5rem;
+      }
+      &--main {
+        color: var(--rule);
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        word-spacing: 2px;
+        font-family: var(--mono);
+        text-transform: uppercase;
+        text-align: start;
+
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+.query {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--cream);
+  font-size: 6rem;
+  line-height: 6rem;
+  gap: 3rem;
+
+  height: 75vh;
+  transform: translateY(-8rem);
+
+  &--main {
+    font-family: var(--serif);
+  }
+  &--sub {
+    font-family: var(--mono);
+    text-align: center;
+  }
+}
+
+.footer {
+  &-left {
+    color: var(--rule);
+  }
+  &-right {
+    color: var(--red);
+  }
+}

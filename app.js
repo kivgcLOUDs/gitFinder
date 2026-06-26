@@ -23,7 +23,7 @@ async function gitHubProfile(username) {
     //
     console.log(data);
   } catch (err) {
-    alert(err.message);
+    // alert(err.message);
   }
 }
 
