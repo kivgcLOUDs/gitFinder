@@ -84,6 +84,8 @@
 
   &--right {
     flex: 1;
+    position: relative;
+    // height: 60vh;
 
     &-heading {
       color: var(--rule);
@@ -91,11 +93,28 @@
       text-transform: uppercase;
       font-size: 2rem;
     }
+
+    &-loader {
+      position: absolute;
+      top: 6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100rem;
+    }
+
+    &-load {
+      height: 10rem;
+      width: 10rem;
+      fill: var(--red);
+
+      animation: loader 0.8s infinite;
+    }
   }
 }
 
 .result {
   margin-top: 3rem;
+  animation: intro 0.7s ease-out;
 
   &-profile {
     display: flex;
@@ -173,6 +192,7 @@
   }
 
   &-extra {
+    padding-bottom: 6rem;
     &--info {
       display: flex;
       padding: 1.6rem 0;
@@ -206,8 +226,9 @@
 .query {
   height: 100%;
   display: flex;
+  // display: none;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   flex-direction: column;
   color: var(--cream);
   font-size: 6rem;
@@ -219,6 +240,7 @@
 
   &--main {
     font-family: var(--serif);
+    text-align: center;
   }
   &--sub {
     font-family: var(--mono);
@@ -232,5 +254,26 @@
   }
   &-right {
     color: var(--red);
+  }
+}
+
+@keyframes intro {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
