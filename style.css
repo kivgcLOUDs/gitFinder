@@ -63,6 +63,8 @@ body {
   width: 250px;
   background-color: #cacaca;
   height: 270px;
+  /* border-radius: 10px; */
+  border-radius: 1rem;
 }
 
 .profile-photo {
@@ -157,4 +159,5 @@ body {
 
 .stat-img {
   width: 40px;
+  display: inline-block;
 }

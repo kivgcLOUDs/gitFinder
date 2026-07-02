@@ -1,0 +1,22 @@
+.flexy {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--rule);
+}
+
+.wid--3 {
+  width: 50%;
+  // font-size: 5rem;
+}
+
+.m--3 {
+  margin-top: 3rem;
+}
+
+.col--red {
+  color: var(--red);
+}
+
+.ft--s {
+  font-size: 3rem;
+}

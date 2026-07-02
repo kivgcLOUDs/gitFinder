@@ -1,0 +1,40 @@
+:root {
+  --ink-light: #7a7a7aef;
+  --ink: #0e0e0e;
+  --paper: #f5f2eb;
+  // --cream: #ede9df;
+  // --rule: #c8c0b0;
+  --cream: #bbbbba;
+  --rule: #948f86;
+  --red: #c0392b;
+  --mono: "DM Mono", moospace;
+  --serif: "playfair Display", serif;
+  --sans: "DM sans", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 10/16
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.7rem;
+  font-family: lato, sans-serif;
+  line-height: 1;
+  font-weight: 400;
+
+  background-color: var(--paper);
+  color: var(--ink);
+  // padding:;
+}
