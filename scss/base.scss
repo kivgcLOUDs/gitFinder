@@ -1,6 +1,7 @@
 :root {
   --ink-light: #7a7a7aef;
   --ink: #0e0e0e;
+  --paper-dark: #d6d2c8;
   --paper: #f5f2eb;
   // --cream: #ede9df;
   // --rule: #c8c0b0;
@@ -10,7 +11,12 @@
   --mono: "DM Mono", moospace;
   --serif: "playfair Display", serif;
   --sans: "DM sans", sans-serif;
+
+  --screen-l: max-width: 1440px;
+  --screen-m: max-width: 774px;
 }
+
+$screen-l: 1440px;
 
 * {
   padding: 0;
@@ -34,7 +40,7 @@ body {
   line-height: 1;
   font-weight: 400;
 
-  background-color: var(--paper);
+  background-color: var(--paper-dark);
   color: var(--ink);
   // padding:;
 }
