@@ -32,6 +32,19 @@ $screen-l: 1440px;
 html {
   font-size: 62.5%; // 10/16
   box-sizing: border-box;
+
+  @media (max-width: 515px) {
+    font-size: 50%;
+  }
+  @media (max-width: 430px) {
+    font-size: 40%;
+  }
+  @media (max-width: 335px) {
+    font-size: 30%;
+  }
+  @media (max-width: 260px) {
+    font-size: 35%;
+  }
 }
 
 body {

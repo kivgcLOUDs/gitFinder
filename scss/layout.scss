@@ -239,6 +239,10 @@
   height: 75vh;
   transform: translateY(-8rem);
 
+  @media (max-width: 774px) {
+    font-size: 4rem;
+  }
+
   &--main {
     font-family: var(--serif);
     text-align: center;

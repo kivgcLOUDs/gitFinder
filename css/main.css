@@ -28,6 +28,26 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+@media (max-width: 515px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 430px) {
+  html {
+    font-size: 40%;
+  }
+}
+@media (max-width: 335px) {
+  html {
+    font-size: 30%;
+  }
+}
+@media (max-width: 260px) {
+  html {
+    font-size: 35%;
+  }
+}
 
 body {
   font-size: 1.7rem;
@@ -362,6 +382,11 @@ body {
   gap: 3rem;
   height: 75vh;
   transform: translateY(-8rem);
+}
+@media (max-width: 774px) {
+  .query {
+    font-size: 4rem;
+  }
 }
 .query--main {
   font-family: var(--serif);
