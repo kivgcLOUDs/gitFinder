@@ -11,5 +11,5 @@ A clean frontend application that fetches and displays real-time GitHub profile 
 
 ## Tech Stack
 
-- HTML5 / CSS3
+- HTML5 / CSS3 / SCSC
 - JavaScript (Async/Await, Fetch API)
