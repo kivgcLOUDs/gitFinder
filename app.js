@@ -4,85 +4,80 @@ const contentContainer = document.querySelector(".content--right");
 const searchBtn = document.querySelector(".controls--btn");
 const searchBar = document.querySelector(".search-bar");
 
-async function gitHubProfile(username) {
-  try {
-    loader();
+class App {
+  #user = {};
 
-    const res = await fetch(`https://api.github.com/users/${username}`);
+  constructor() {
+    searchBtn.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    if (!res.ok) throw new Error();
-
-    const data = await res.json();
-
-    ////////////////////////
-    /// HTML CHANGES
-    // img.src = data.avatar_url;
-    // repo.textContent = data.public_repos;
-    // followers.textContent = data.followers;
-    // bio.textContent = data.bio;
-
-    const user = {
-      img: data.avatar_url,
-      repo: data.public_repos,
-      followers: data.followers,
-      bio: data.bio,
-      followers: data.followers,
-      following: data.following,
-      username: data.login,
-      name: data.name,
-      location: data.location,
-      dateCreated: data.created_at,
-      company: data.company,
-      website: data.website,
-      url: data.html_url,
-      timestring: data.created_at,
-    };
-
-    //////////////////////////
-    gitHubContent(user);
-    //
-    console.log(data);
-  } catch (err) {
-    console.error(err);
-    contentContainer.innerHTML = "";
-    contentContainer.insertAdjacentHTML(
-      "beforeend",
-      `
-      <div class="flexy">
-            <h2 class="content--right-heading">profile record</h2>
-          </div>
-
-       <div class="query">
-            
-            <h2 class="query--sub col--red ft--s">An Error occured ${err.message}</h2>
-          </div>
-      `,
-    );
+      this.gitHubProfile(searchBar.value);
+    });
   }
-}
 
-searchBtn.addEventListener("click", function (e) {
-  e.preventDefault();
+  gitHubProfile = async (username) => {
+    try {
+      // RETURN IF SEARCH QUERY IS EMPTY
+      if (!username) return;
 
-  gitHubProfile(searchBar.value);
-});
+      // LOADER FOR WHEN ASYNC FUNCTION STARTS
+      this.loader();
 
-// gitHubProfile("Deviant08");
+      const res = await fetch(`https://api.github.com/users/${username}`);
+      if (!res.ok) throw new Error();
+      const data = await res.json();
 
-function gitHubContent(user) {
-  ////////////////////
-  // YEAR JOINED
-  const time = new Date(user.timestring);
-  const createdDate = `${String(time.getDay()).padStart(2, "0")}/${String(time.getMonth()).padStart(2, "0")}/${time.getFullYear()}`;
-  //////////////
+      /////////////////////
+      // STATUS CHECKS FOR REQUEST
 
-  const currentTime = new Date();
-  const currentTimeStr = `${String(currentTime.getHours()).padStart(2, "0")}:${String(currentTime.getMinutes()).padStart(2, "0")}:${String(currentTime.getSeconds()).padStart(2, "0")}`;
+      // SPLITING DATA FOR EASY ACCESS
+      this.#user = {
+        img: data.avatar_url,
+        repo: data.public_repos,
+        followers: data.followers,
+        bio: data.bio,
+        followers: data.followers,
+        following: data.following,
+        username: data.login,
+        name: data.name,
+        location: data.location,
+        dateCreated: data.created_at,
+        company: data.company,
+        website: data.website,
+        url: data.html_url,
+        timestring: data.created_at,
+      };
 
-  const gitHubHTML = `
+      //////////////////////////
+      // WHERE DATA IS CALLED AND DISPLAYED IN BROWSER
+      this.gitHubContent(this.#user);
+    } catch (err) {
+      console.error(err);
+
+      // ERROR MESSAGE FOR ANY FAILED QUERY
+      this.errorMessage(contentContainer, err.message);
+    }
+  };
+
+  // EVERYTHING ABOUT THE SEARCH QUERY
+  // INCLUDING
+  // 1. THE TIME WHEN A USER SEARCHES
+  // 2. ADDING PADDING TO DATE DATA FOR DISPLAY
+  // 3. HTML STRUCTURE ADDED HERE
+  gitHubContent(user) {
+    // ADDING PADDING TO USERS CREATED DATE
+    const time = new Date(user.timestring);
+    const usersCreatedDate = `${String(time.getDay()).padStart(2, "0")}/${String(time.getMonth()).padStart(2, "0")}/${time.getFullYear()}`;
+
+    //NEW FEATURE OF TIME INWHICH SEARCH STARTED
+    const currentTime = new Date();
+    const timeOfSearch = `${String(currentTime.getHours()).padStart(2, "0")}:${String(currentTime.getMinutes()).padStart(2, "0")}:${String(currentTime.getSeconds()).padStart(2, "0")}`;
+
+    // CONTENT HTML
+    const gitHubHTML = `
         <div class="flexy">
             <h2 class="content--right-heading">profile record</h2>
-            <h2 class="content--right-heading">${currentTimeStr}</h2>
+            <h2 class="content--right-heading">${timeOfSearch}</h2>
         </div>
 
         <div class="result">
@@ -135,7 +130,7 @@ function gitHubContent(user) {
                 </li>
                 <li class="result-extra--info">
                   <p class="result-extra--info--main">joined</p>
-                  <div class="result-extra--info--sub">${createdDate}</div>
+                  <div class="result-extra--info--sub">${usersCreatedDate}</div>
                 </li>
               </ul>
             </div>
@@ -144,12 +139,13 @@ function gitHubContent(user) {
           </div>
     `;
 
-  contentContainer.innerHTML = "";
-  contentContainer.insertAdjacentHTML("beforeend", gitHubHTML);
-}
+    // INSERTING HTML IN CONTAINER
+    this.containerReset(contentContainer, gitHubHTML);
+  }
 
-function loader() {
-  const loaderHTML = `
+  // LOADER FOR SEARCH CONTENT
+  loader() {
+    const loaderHTML = `
       <div class="flexy">
         <h2 class="content--right-heading">profile record</h2>
       </div>
@@ -161,7 +157,32 @@ function loader() {
       </div>
     `;
 
-  contentContainer.innerHTML = ``;
+    // INSERTING THE LOADER HTML INTO THE CONTAINER
+    this.containerReset(contentContainer, loaderHTML);
+  }
 
-  contentContainer.insertAdjacentHTML("beforeend", loaderHTML);
+  // ERROR MESSAGE FOR FAILED SEARCH
+  errorMessage(container, errMessage) {
+    container.innerHTML = "";
+    container.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="flexy">
+            <h2 class="content--right-heading">profile record</h2>
+          </div>
+
+       <div class="query">
+            
+            <h2 class="query--sub col--red ft--s">An Error occured ${errMessage}</h2>
+          </div>
+      `,
+    );
+  }
+
+  containerReset(container, HTML, insertType = "beforeend") {
+    container.innerHTML = ``;
+    container.insertAdjacentHTML(insertType, HTML);
+  }
 }
+
+const app = new App();
