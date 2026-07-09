@@ -1,4 +1,4 @@
-# GitHub Finder App
+# GitHub Gazette
 
 A clean frontend application that fetches and displays real-time GitHub profile data using the GitHub REST API.
 
