@@ -29,6 +29,8 @@ class App {
 
       /////////////////////
       // STATUS CHECKS FOR REQUEST
+      if (res.status === 404) throw new Error("Such user not found");
+      if (res.status === 403) throw new Error("Server tempoary unavailable");
 
       // SPLITING DATA FOR EASY ACCESS
       this.#user = {
@@ -52,7 +54,7 @@ class App {
       // WHERE DATA IS CALLED AND DISPLAYED IN BROWSER
       this.gitHubContent(this.#user);
     } catch (err) {
-      console.error(err);
+      console.error(err.message);
 
       // ERROR MESSAGE FOR ANY FAILED QUERY
       this.errorMessage(contentContainer, err.message);
@@ -173,7 +175,7 @@ class App {
 
        <div class="query">
             
-            <h2 class="query--sub col--red ft--s">An Error occured ${errMessage}</h2>
+            <h2 class="query--sub col--red ft--s">An Error occured: ${errMessage}</h2>
           </div>
       `,
     );
